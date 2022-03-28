@@ -3,12 +3,15 @@ package com.github.coryrobertson.Logger;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
+
 class LoggerTest
 {
 
     @Test
     void log()
     {
+        Logger.setLogFileName("logFile.txt");
         Logger.setLevel(LogLevels.LOG);
         Assertions.assertTrue(Logger.log("1 This is a test of the log, pay no attention here :)", LogLevels.LOG));
         Assertions.assertTrue(Logger.log("1 This is a test of the log, pay no attention here :)", LogLevels.WARN));
@@ -21,6 +24,8 @@ class LoggerTest
         Assertions.assertTrue(Logger.log("3 This is a test of the log, pay no attention here :)", LogLevels.LOG));
         Assertions.assertTrue(Logger.log("3 This is a test of the log, pay no attention here :)", LogLevels.WARN));
         Assertions.assertTrue(Logger.log("3 This is a test of the log, pay no attention here :)", LogLevels.ERROR));
+        File file = new File("./logFile.txt");
+        Assertions.assertTrue(file.exists());
     }
 
     @Test

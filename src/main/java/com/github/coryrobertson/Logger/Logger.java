@@ -10,9 +10,11 @@ import java.io.PrintWriter;
 public class Logger
 {
     private static LogLevels level = LogLevels.LOG;
+    private static String LogFileName = "log.txt";
 
     public Logger()
     {
+
     }
 
     /**
@@ -35,7 +37,7 @@ public class Logger
         PrintWriter out;
 
         try {
-            fw = new FileWriter("log.txt", true);
+            fw = new FileWriter(LogFileName, true);
             bw = new BufferedWriter(fw);
             out = new PrintWriter(bw);
             out.println(s);
@@ -73,6 +75,10 @@ public class Logger
     {
         return level;
     }
+
+    public static void setLogFileName(String logFileName) {LogFileName = logFileName;}
+
+    public static String getLogFileName() {return LogFileName;}
 
     /**
      * Returns a log level enum type depending on the value of n
