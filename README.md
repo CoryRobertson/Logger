@@ -9,7 +9,7 @@ Simply put this in your gradle file under repositories
 ```
 and this under your dependencies
 ```gradle
-    implementation 'com.github.CoryRobertson:Logger:v1.0'
+    implementation 'com.github.CoryRobertson:Logger:v1.1'
 ```
 then in a class
 ```java
